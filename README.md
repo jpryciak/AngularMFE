@@ -1,3 +1,5 @@
+
+
 # Micro Apps with Web Components and Angular Elements
 
 This example consists of three Angular projects that demonstrate how to use Web Components/ Angular Elements to implement a shell that loads micro apps:
@@ -8,6 +10,12 @@ This example consists of three Angular projects that demonstrate how to use Web 
 
 ## Install Dependencies
 
+## Original Source
+
+https://github.com/manfredsteyer/angular-microapp
+
+This is my copy of this for testing with run time MFE from cloudfront
+Credit to its creator
 ```
 npm install
 ```
