@@ -8,14 +8,15 @@ This example consists of three Angular projects that demonstrate how to use Web 
 - **client-a (/projects/client-a)**: Demo micro app
 - **client-b (/projects/client-b)**: Another demo micro app
 
-## Install Dependencies
-
 ## Original Source
 
 https://github.com/manfredsteyer/angular-microapp
 
 This is my copy of this for testing with run time MFE from cloudfront
 Credit to its creator
+
+## Install Dependencies
+
 
 
 ```
