@@ -1,9 +1,9 @@
 const AotPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
       // TypeScript-Kompilierung + AOT
-
+const ManifestPlugin = require('webpack-manifest-plugin');
 const PurifyPlugin = require('@angular-devkit/build-optimizer').PurifyPlugin;
       // Build Optimizer
-const UglifyJsPlugin = require('uglifyjs-webpack-plugiin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const path = require('path');
 const webpack = require('webpack');
@@ -11,7 +11,8 @@ const webpack = require('webpack');
 const clientA = {
   entry: './projects/client-a/src/main.ts',
   optimization: {
-    minimize: true
+    minimize: true,
+    usedExports: true
   },
   resolve: {
     mainFields: ['browser', 'module', 'main']
@@ -55,12 +56,13 @@ const clientA = {
       entryModule: path.resolve(__dirname, './projects/client-a/src/app/app.module#AppModule' )
     }),
 
-    new PurifyPlugin()
+    new PurifyPlugin(),
+    new ManifestPlugin()
 
   ],
   output: {
     path: __dirname + '/dist/shell/client-a',
-    filename: 'main.bundle.js'
+    filename: 'main.bundle.[contenthash].js'
   },
   mode: 'production'
 };
