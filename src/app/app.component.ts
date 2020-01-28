@@ -38,15 +38,12 @@ export class AppComponent {
     const configItem = this.config[name];
     if (configItem.loaded) return;
     const cloudFront = 'http://d34t02l3bnu9tl.cloudfront.net';
-    axios.get(cloudFront + '/' + name + '/mainifest.json')
-      .then((data) => {
-
-
+    axios.get(cloudFront + '/' + name + '/manifest.json')
+      .then((response) => {
         const content = document.getElementById('content');
-
-
         const script = document.createElement('script');
-        script.src = cloudFront + '/' + name + data['main.js'];
+        console.log(response.data);
+        script.src = cloudFront + '/' + name +'/' + response.data.mainjs;
         content.appendChild(script);
 
         const element: HTMLElement = document.createElement(configItem.element);

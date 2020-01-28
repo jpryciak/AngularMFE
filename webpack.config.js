@@ -57,7 +57,13 @@ const clientA = {
     }),
 
     new PurifyPlugin(),
-    new ManifestPlugin()
+    new ManifestPlugin({
+      fileName: 'manifest.json',
+      map: (file) => {
+        file.name = file.name.replace(/\./g, '');
+        return file;
+      }
+    })
 
   ],
   output: {

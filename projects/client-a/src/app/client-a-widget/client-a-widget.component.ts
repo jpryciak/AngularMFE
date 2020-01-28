@@ -39,6 +39,7 @@ import { Observable } from 'rxjs';
 </div>
 
 
+
   `,
   styles: [`
         #widget { padding:10px; border: 2px darkred dashed }
@@ -48,7 +49,7 @@ import { Observable } from 'rxjs';
 export class ClientAWidgetComponent implements OnInit {
     control = new FormControl();
     value$: Observable<string>;
-  
+
     ngOnInit(): void {
       this.control.valueChanges.subscribe(x => console.debug(x));
       this.value$ = this.control.valueChanges;
