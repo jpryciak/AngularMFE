@@ -7,7 +7,8 @@ import { environment } from '../environments/environment';
   // selector: 'client-a',
   template: `
       <router-outlet></router-outlet>
-      <strong>I am client-a</strong>
+      <p>
+      <h2>I am client-a from cloud front</h2>
   `,
   encapsulation: ViewEncapsulation.Emulated
 })

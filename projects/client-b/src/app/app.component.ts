@@ -8,12 +8,15 @@ import { Router } from '@angular/router';
   // selector: 'client-b',
   template: `
       <router-outlet></router-outlet>
+      <p>
+      <h2>I am client-b from cloud front</h2>
+
   `,
   encapsulation: ViewEncapsulation.Emulated
 })
 export class AppComponent implements OnInit {
 
-  @Input('state') 
+  @Input('state')
   set state(state: string) {
       console.debug('client-b received state', state);
   }
@@ -26,16 +29,16 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.router.initialNavigation(); // Manually triggering initial navigation for @angular/elements ?
-    
+
     // Standalone mode
     if (environment.standalone) {
       this.router.navigate(['/client-b/page1']);
     }
-    
+
     // just for demonstration!
-    setTimeout(() => { 
+    setTimeout(() => {
       this.message.next('client b initialized!');
     }, 2000);
-    
+
   }
 }

@@ -28,7 +28,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.load('client-a');
-    //this.load('client-b');
+    this.load('client-b');
   }
 
 
@@ -42,8 +42,9 @@ export class AppComponent {
       .then((response) => {
         const content = document.getElementById('content');
         const script = document.createElement('script');
-        console.log(response.data);
+        console.log('Found manifest for ' + name + ' on ' + cloudFront );
         script.src = cloudFront + '/' + name +'/' + response.data.mainjs;
+        console.log('Installing ' + cloudFront + '/' + name +'/' + response.data.mainjs);
         content.appendChild(script);
 
         const element: HTMLElement = document.createElement(configItem.element);

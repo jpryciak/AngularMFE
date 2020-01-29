@@ -75,6 +75,10 @@ const clientA = {
 
 const clientB = {
   entry: './projects/client-b/src/main.ts',
+  optimization: {
+    minimize: true,
+    usedExports: true
+  },
   resolve: {
     mainFields: ['browser', 'module', 'main']
   },
@@ -117,12 +121,18 @@ const clientB = {
       entryModule: path.resolve(__dirname, './projects/client-b/src/app/app.module#AppModule' )
     }),
 
-    new PurifyPlugin()
-
+    new PurifyPlugin(),
+    new ManifestPlugin({
+      fileName: 'manifest.json',
+      map: (file) => {
+        file.name = file.name.replace(/\./g, '');
+        return file;
+      }
+    })
   ],
   output: {
     path: __dirname + '/dist/shell/client-b',
-    filename: 'main.bundle.js'
+    filename: 'main.bundle.[contenthash].js'
   },
   mode: 'production'
 };
