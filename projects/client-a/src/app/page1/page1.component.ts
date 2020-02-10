@@ -7,10 +7,11 @@ import { FormControl } from '@angular/forms';
 
   <div class="header">
       <h2 class="title">Flight Search</h2>
+        <h2>updated 2/6-12:13p!!!!</h2>
   </div>
   <div class="content">
-  
- 
+
+
       <div class="form-group">
           <label>From:</label>
           <input name="from" class="form-control">
@@ -19,13 +20,13 @@ import { FormControl } from '@angular/forms';
           <label>To:</label>
           <input name="to" class="form-control">
       </div>
-  
+
       <div class="form-group">
-          <button 
+          <button
               class="btn btn-default">Search</button>
-  
+
           </div>
-  
+
   </div>
   </div>
   `
@@ -34,5 +35,5 @@ export class Page1Component  {
 
   control = new FormControl();
 
-  
+
 }
